@@ -1,32 +1,115 @@
 #include <stdio.h>
+#include <stdlib.h> //para system("clear");
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+//função para limpar buffer de entrada.
+void limparBuffer(){
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);    
+};
 
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+    int escolhaPeca; // Para 1, 2, 3
+    char escolhaMovimento; // Para 'A', 'B', 'C', 'D'
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    //menu interativo para escolha da peça.
+    printf("\n---- Bem vindo ao jogo MateXeque ----\n");
+   
+    printf(" Escolha sua peça: \n");
+    printf("|| 1. Bispo\n");
+    printf("|| 2. Torre\n");
+    printf("|| 3. Rainha\n");
+    
+    printf("\n"); //pular linha - espaçamento.
+    
+    printf(" --> ");
+    scanf("%d", &escolhaPeca); //escolha do usuário. 
+    getchar();//limpar buffer.
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    system("clear"); //limpar terminal.
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    //menu interativo para 1 escolha da direção.
+    printf(" Escolha a direção do movimento da sua peça: \n");
+    printf("|| A. Cima \n");
+    printf("|| B. Baixo \n");
+    printf("|| C. Esquerda \n");
+    printf("|| D. Direita \n");
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    printf("\n"); //pular linha - espaçamento.
+    
+    printf(" --> ");
+    scanf(" %c", &escolhaMovimento); //escolha do usuário.
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    system("clear"); //limpar terminal.
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    printf("--------------------------");
+    printf("\n Simulando movimentos...\n");
+    printf("--------------------------");
 
+    //Movimento.
+    switch (escolhaPeca){
+    //Movimentação do Bispo.
+    case 1:
+        for (int i = 0; i < 5; i++)
+        {
+        printf(" + 1 casa para %s...");
+        }
+    break;
+
+    //Movimentação da Torre.
+    case 2:
+        while (escolhaPeca <= 5)
+        {
+            printf(" + 1 casa para %s...");
+        }
+    break;
+
+    //Movimentação da Rainha.
+    case 3:
+        do{
+        printf(" + 1 casa para %s...");
+        }while (escolhaPeca < 8);
+    break;
+
+    //else.
+    default:
+        printf(" Opção Inválida! Volte para o menu...");
+        break;
+    };
+
+    //Direção.
+    switch (escolhaMovimento){
+    
+    //Movimentação do Bispo.
+    case 'A':
+        for (int i = 0; i < 5; i++)
+        {
+        printf(" + 1 casa para %s...");
+        }
+    break;
+
+    //Movimentação da Torre.
+    case 'B':
+        while (escolhaPeca <= 5)
+        {
+           printf(" + 1 casa para %s...");
+        }
+    break;
+
+    //Movimentação da Rainha.
+    case 'C':
+        do{
+            printf(" + 1 casa para %s...");
+        }while (escolhaPeca < 8);
+    break;
+
+    case 'D':
+
+    break;
+
+    //else.
+    default:
+        printf(" Opção Inválida! Volte para o menu...");
+        break;
+    };
     return 0;
 }
