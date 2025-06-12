@@ -102,35 +102,38 @@ int main(){
         }
     } else{
         printf("Opção Inválida..");
-        return 1; // Boa prática para indicar erro
+        return 1; // Boa prática para indicar erro.
     }
 
     // Escolha da peça.
     switch (escolhaPeca){
 
     // Bispo (while).
-    case 1:
+    case 1:{
         int i = 0;
-        while (i < 5) {
-            printf(" + 1 casa para %s...\n", direcaoBispoTexto);
-            i++;
+            while (i < 5) {
+                printf(" + 1 casa para %s...\n", direcaoBispoTexto);
+                i++;
+            }
         }
     break;
 
     // Torre (for).
-    case 2:
-        for (int j = 0; j < 5; j++) {
-            printf(" + 1 casa para %s...\n", direcaoTorreTexto);
+    case 2:{
+            for (int j = 0; j < 5; j++) {
+                printf(" + 1 casa para %s...\n", direcaoTorreTexto);
+            }
         }
     break;
 
     // Rainha (do-while).
-    case 3:
+    case 3:{
         int count = 0;
-        do {
-            printf(" + 1 casa para %s\n", direcaoRainhaTexto);
-            count++;
-        } while (count < 8);
+            do {
+                printf(" + 1 casa para %s\n", direcaoRainhaTexto);
+                count++;
+            } while (count < 8);
+        }
     break;
     
     default:
@@ -138,4 +141,5 @@ int main(){
     break;
     }
     
+    return 0; 
 }
