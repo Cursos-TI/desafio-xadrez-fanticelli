@@ -1,4 +1,5 @@
 #include <stdio.h> // biblioteca padrão.
+#include <stdlib.h> //para a função de limpar terminal.
 
 // Função para limpar buffer de entrada.
 void limparBuffer(){
@@ -36,6 +37,8 @@ int main(){
 
         printf(" --> ");
         scanf(" %c", &escolhaDirecaoBispo);
+
+        system("clear");
     
         // Atribui o texto da direção.
         switch (escolhaDirecaoBispo) {
@@ -64,6 +67,8 @@ int main(){
         printf(" --> ");
         scanf(" %c", &escolhaDirecaoTorre);
 
+        system("clear");
+
         switch (escolhaDirecaoTorre){
             case 'A':
                 direcaoTorreTexto = "direita";
@@ -82,6 +87,8 @@ int main(){
 
         printf(" --> ");
         scanf(" %c", &escolhaDirecaoRainha);
+
+        system("clear");
 
         switch (escolhaDirecaoRainha){
             case 'A':
@@ -111,28 +118,41 @@ int main(){
     // Bispo (while).
     case 1:{
         int i = 0;
+        printf("---- Simulando movimentos ----\n");
+        printf("\n");
             while (i < 5) {
                 printf(" + 1 casa para %s...\n", direcaoBispoTexto);
                 i++;
             }
+        printf("\n Você andou um total de 5 casas para %s\n", direcaoBispoTexto);
+        printf("\n---- Fim da simulação ----\n");
         }
     break;
 
     // Torre (for).
     case 2:{
+        printf("---- Simulando movimentos ----\n");
+        printf("\n");
             for (int j = 0; j < 5; j++) {
                 printf(" + 1 casa para %s...\n", direcaoTorreTexto);
             }
+        printf("\n Você andou um total de 5 casas para %s\n", direcaoBispoTexto);
+        printf("\n---- Fim da simulação ----\n");
         }
     break;
 
     // Rainha (do-while).
     case 3:{
         int count = 0;
+        printf("---- Simulando movimentos ----\n");
+        printf("\n");
             do {
+                printf("---- Simulando movimentos ----\n");
                 printf(" + 1 casa para %s\n", direcaoRainhaTexto);
                 count++;
             } while (count < 8);
+        printf("\n Você andou um total de 5 casas para %s\n", direcaoBispoTexto);
+        printf("\n---- Fim da simulação ----\n");
         }
     break;
     
@@ -140,6 +160,6 @@ int main(){
         printf("Opção Inválida.. ");
     break;
     }
-    
+
     return 0; 
 }
