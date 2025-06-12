@@ -136,7 +136,7 @@ int main(){
             for (int j = 0; j < 5; j++) {
                 printf(" + 1 casa para %s...\n", direcaoTorreTexto);
             }
-        printf("\n Você andou um total de 5 casas para %s\n", direcaoBispoTexto);
+        printf("\n Você andou um total de 5 casas para %s\n", direcaoTorreTexto);
         printf("\n---- Fim da simulação ----\n");
         }
     break;
@@ -147,11 +147,10 @@ int main(){
         printf("---- Simulando movimentos ----\n");
         printf("\n");
             do {
-                printf("---- Simulando movimentos ----\n");
                 printf(" + 1 casa para %s\n", direcaoRainhaTexto);
                 count++;
             } while (count < 8);
-        printf("\n Você andou um total de 5 casas para %s\n", direcaoBispoTexto);
+        printf("\n Você andou um total de 8 casas para %s\n", direcaoRainhaTexto);
         printf("\n---- Fim da simulação ----\n");
         }
     break;
