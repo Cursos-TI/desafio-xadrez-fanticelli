@@ -9,7 +9,11 @@ void limparBuffer(){
 int main(){
     int escolhaPeca; // Para 1, 2, 3 (Bispo/Rainha/Torre).
     char escolhaDirecaoBispo, escolhaDirecaoTorre, escolhaDirecaoRainha; // Para A, B, C, D.
-    char* direcaoBispoTexto, direcaoTorreTexto, direcaoRainhaTexto; // Para string de direção.
+    
+    //ponteiro para string.
+    char* direcaoBispoTexto;
+    char* direcaoTorreTexto;
+    char* direcaoRainhaTexto;
 
     //menu interativo para escolha da peça.
     printf("---- Bem vindo ao jogo MateCheck ----\n");
@@ -31,8 +35,7 @@ int main(){
         printf("|| D. Baixo e Direita\n");
 
         printf(" --> ");
-        scanf("%c", &escolhaDirecaoBispo);
-        limparBuffer();
+        scanf(" %c", &escolhaDirecaoBispo);
     
         // Atribui o texto da direção.
         switch (escolhaDirecaoBispo) {
@@ -52,29 +55,24 @@ int main(){
                 direcaoBispoTexto = "baixo e direita";
             break;
         }
-    }
-    
-    if (escolhaPeca == 2){ // Se o usuario escolher Torre.
+    } else if (escolhaPeca == 2){ // Se o usuario escolher Torre.
         printf("\n Escolha a direção:\n");
         printf("|| A. Direita\n");
         printf("|| B. Cima\n");
 
         printf(" --> ");
-        scanf("%c", &escolhaDirecaoTorre);
-        limparBuffer();
+        scanf(" %c", &escolhaDirecaoTorre);
 
-        switch (escolhaDirecaoTorre)
-        {
-        case 'A':
-            direcaoTorreTexto = "direita";
-        break;
+        switch (escolhaDirecaoTorre){
+            case 'A':
+                direcaoTorreTexto = "direita";
+            break;
 
-        case 'B':
-            direcaoTorreTexto = "cima";
-        break;
-    }
-
-    if (escolhaPeca == 3){ // Se o usuario escolher Rainha.
+            case 'B':
+                direcaoTorreTexto = "cima";
+            break;
+        }
+    } else if (escolhaPeca == 3){ // Se o usuario escolher Rainha.
         printf("\n Escolha a direção:\n");
         printf("|| A. Cima\n");
         printf("|| B. Baixo\n");
@@ -82,8 +80,7 @@ int main(){
         printf("|| D. Direita\n");
 
         printf(" --> ");
-        scanf("%c", &escolhaDirecaoRainha);
-        limparBuffer();
+        scanf(" %c", &escolhaDirecaoRainha);
 
         switch (escolhaDirecaoRainha){
             case 'A':
@@ -102,6 +99,9 @@ int main(){
                 direcaoRainhaTexto = "direita";
             break;
         }
+    } else{
+        printf("Opção Inválida..");
+        return 1; // Boa prática para indicar erro
     }
 
     // Escolha da peça.
