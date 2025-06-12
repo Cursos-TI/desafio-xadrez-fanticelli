@@ -1,5 +1,6 @@
 #include <stdio.h> // biblioteca padrão.
 #include <stdlib.h> //para a função de limpar terminal.
+#include <ctype.h> // Para uso do toupper.
 
 // Função para limpar buffer de entrada.
 void limparBuffer(){
@@ -37,6 +38,8 @@ int main(){
 
         printf(" --> ");
         scanf(" %c", &escolhaDirecaoBispo);
+        
+        escolhaDirecaoBispo = toupper(escolhaDirecaoBispo); // Convertendo em maiusculo.
 
         system("clear");
     
@@ -67,6 +70,8 @@ int main(){
         printf(" --> ");
         scanf(" %c", &escolhaDirecaoTorre);
 
+        escolhaDirecaoTorre = toupper(escolhaDirecaoTorre); // convertendo em maiusculo. 
+
         system("clear");
 
         switch (escolhaDirecaoTorre){
@@ -87,6 +92,8 @@ int main(){
 
         printf(" --> ");
         scanf(" %c", &escolhaDirecaoRainha);
+
+        escolhaDirecaoRainha = toupper(escolhaDirecaoRainha); //Convertendo em maiusculo. 
 
         system("clear");
 
