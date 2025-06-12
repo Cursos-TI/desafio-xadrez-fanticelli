@@ -11,9 +11,9 @@ int main(){
     char escolhaDirecaoBispo, escolhaDirecaoTorre, escolhaDirecaoRainha; // Para A, B, C, D.
     
     //ponteiro para string.
-    char* direcaoBispoTexto;
-    char* direcaoTorreTexto;
-    char* direcaoRainhaTexto;
+    char* direcaoBispoTexto = "";
+    char* direcaoTorreTexto = "";
+    char* direcaoRainhaTexto = "";
 
     //menu interativo para escolha da peça.
     printf("---- Bem vindo ao jogo MateCheck ----\n");
@@ -55,6 +55,7 @@ int main(){
                 direcaoBispoTexto = "baixo e direita";
             break;
         }
+
     } else if (escolhaPeca == 2){ // Se o usuario escolher Torre.
         printf("\n Escolha a direção:\n");
         printf("|| A. Direita\n");
