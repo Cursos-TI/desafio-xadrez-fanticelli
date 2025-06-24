@@ -1,11 +1,46 @@
 #include <stdio.h> // biblioteca padrão.
-#include <stdlib.h> //para a função de limpar terminal.
+#include <stdlib.h> // para a função de limpar terminal.
 #include <ctype.h> // Para uso do toupper.
 
 // Função para limpar buffer de entrada.
 void limparBuffer(){
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
+}
+
+// Função para o Bispo.
+void moverBispo(int totalCasas, const char* direcaoTexto) {
+    int casasMovidas = 0;
+    for (int i = 0; i < totalCasas; i++) {
+        
+        for (int j = 0; j < 1; j++) {
+            printf(" + 1 casa para %s...\n", direcaoTexto);
+            casasMovidas++;
+            // Se quisermos parar o movimento do Bispo após um certo número de casas
+            if (casasMovidas >= totalCasas) {
+                break; // Sai do loop interno
+            }
+        }
+        if (casasMovidas >= totalCasas) {
+            break; // Sai do loop externo
+        }
+    }
+}
+
+// Função recursiva para a Torre
+void moverTorre(int casasRestantes, const char* direcaoTexto) {
+    if (casasRestantes > 0) {
+        printf(" + 1 casa para %s...\n", direcaoTexto);
+        moverTorre(casasRestantes - 1, direcaoTexto);
+    }
+}
+
+// Função recursiva para a Rainha
+void moverRainha(int casasRestantes, const char* direcaoTexto) {
+    if (casasRestantes > 0) {
+        printf(" + 1 casa para %s\n", direcaoTexto);
+        moverRainha(casasRestantes - 1, direcaoTexto);
+    }
 }
 
 int main(){
@@ -19,7 +54,7 @@ int main(){
 
     //menu interativo para escolha da peça.
     printf("---- Bem vindo ao jogo MateCheck ----\n");
-   
+    
     printf("\n Escolha sua peça: \n");
     printf("|| 1. Bispo\n");
     printf("|| 2. Torre\n");
@@ -30,7 +65,8 @@ int main(){
     scanf("%d", &escolhaPeca);
     limparBuffer();
 
-    if (escolhaPeca == 1){ // Se o usuario escolher Bispo.
+    // Lógica para obter a direção para o Bispo.
+    if (escolhaPeca == 1){ 
         printf("\n Escolha a direção: \n");
         printf("|| A. Cima e Esquerda\n");
         printf("|| B. Cima e Direita\n");
@@ -57,7 +93,7 @@ int main(){
             case 'C':
                 direcaoBispoTexto = "baixo e esquerda";
             break;
-           
+            
             case 'D':
                 direcaoBispoTexto = "baixo e direita";
             break;
@@ -118,74 +154,69 @@ int main(){
     } else if (escolhaPeca == 4){
         system("clear");
     } else{
-        printf("Opção Inválida..");
+        printf("Opção Inválida..\n");
         return 1; // Boa prática para indicar erro.
     }
 
     // Escolha da peça.
     switch (escolhaPeca){
 
-    // Bispo (while).
+    // Bispo.
     case 1:{
-        int i = 0;
-        printf("---- Simulando movimentos ----\n");
+        printf("---- Simulando movimentos do Bispo ----\n");
         printf("\n");
-            while (i < 5) {
-                printf(" + 1 casa para %s...\n", direcaoBispoTexto);
-                i++;
-            }
+        moverBispo(5, direcaoBispoTexto);
         printf("\n Você andou um total de 5 casas para %s\n", direcaoBispoTexto);
-        printf("\n---- Fim da simulação ----\n");
+        printf("\n");
         }
     break;
 
-    // Torre (for).
+    // Torre.
     case 2:{
-        printf("---- Simulando movimentos ----\n");
+        printf("---- Simulando movimentos da Torre ----\n");
         printf("\n");
-            for (int j = 0; j < 5; j++) {
-                printf(" + 1 casa para %s...\n", direcaoTorreTexto);
-            }
+        moverTorre(5, direcaoTorreTexto);
         printf("\n Você andou um total de 5 casas para %s\n", direcaoTorreTexto);
-        printf("\n---- Fim da simulação ----\n");
+        printf("\n");
         }
     break;
 
-    // Rainha (do-while).
+    // Rainha.
     case 3:{
-        int count = 0;
-        printf("---- Simulando movimentos ----\n");
+        printf("---- Simulando movimentos da Rainha ----\n");
         printf("\n");
-            do {
-                printf(" + 1 casa para %s\n", direcaoRainhaTexto);
-                count++;
-            } while (count < 8);
+        moverRainha(8, direcaoRainhaTexto);
         printf("\n Você andou um total de 8 casas para %s\n", direcaoRainhaTexto);
-        printf("\n---- Fim da simulação ----\n");
+        printf("\n");
         }
     break;
 
     case 4: {
-        //loop para as 2 casas para baixo.
-        for (int i = 0; i < 2; i++){
-            printf(" + 1 casa para baixo...\n");    
-        }
-
-        //loop para a esquerda.
-        int j = 0;
-        while (j < 1){
-            printf(" + 1 casa para esquerda...\n");
-            j++;
-        }
+        printf("---- Simulando movimento do Cavalo ----\n");
         printf("\n");
+        
+        int casasVerticais = 0;
+        int casasHorizontais = 0;
 
+        // Loop principal para o movimento do Cavalo
+        for (int i = 0; i < 3; i++) { 
+            if (casasVerticais < 2) {
+                printf(" + 1 casa para cima...\n");
+                casasVerticais++;
+                continue; 
+            }
+
+            if (casasHorizontais < 1) {
+                printf(" + 1 casa para a direita...\n");
+                casasHorizontais++;
+                break; 
+            }
+        }
+        printf("\n || Você andou em L (2 casas para baixo e 1 para esquerda).\n");
+        printf("\n");
     break;
     }
-    
-    default:
-        printf("Opção Inválida.. ");
-    break;
-    }
+}
 
     return 0; 
 }
