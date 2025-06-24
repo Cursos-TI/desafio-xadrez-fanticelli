@@ -24,6 +24,7 @@ int main(){
     printf("|| 1. Bispo\n");
     printf("|| 2. Torre\n");
     printf("|| 3. Rainha\n");
+    printf("|| 4. Cavalo\n");
     
     printf(" --> ");
     scanf("%d", &escolhaPeca);
@@ -114,6 +115,8 @@ int main(){
                 direcaoRainhaTexto = "direita";
             break;
         }
+    } else if (escolhaPeca == 4){
+        system("clear");
     } else{
         printf("Opção Inválida..");
         return 1; // Boa prática para indicar erro.
@@ -161,6 +164,23 @@ int main(){
         printf("\n---- Fim da simulação ----\n");
         }
     break;
+
+    case 4: {
+        //loop para as 2 casas para baixo.
+        for (int i = 0; i < 2; i++){
+            printf(" + 1 casa para baixo...\n");    
+        }
+
+        //loop para a esquerda.
+        int j = 0;
+        while (j < 1){
+            printf(" + 1 casa para esquerda...\n");
+            j++;
+        }
+        printf("\n");
+
+    break;
+    }
     
     default:
         printf("Opção Inválida.. ");
